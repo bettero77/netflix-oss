@@ -1,0 +1,6 @@
+version = '0.0.1'
+
+dependencies {
+    compile libpacks.cloud_config_server
+    compile libpacks.spring_common
+}

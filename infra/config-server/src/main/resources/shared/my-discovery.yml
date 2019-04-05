@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: my-discovery
+#  profiles:
+#    active: discovery
+
+server:
+  port: 9292
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9292/eureka/
+#
+#    register-with-eureka: false
+#    fetch-registry: false
+#    region: default
+#    registryFetchIntervalSeconds: 5
+
+
+#  instance:
+#    hostname: localhost

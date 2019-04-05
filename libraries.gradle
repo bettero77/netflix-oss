@@ -1,0 +1,62 @@
+ext {
+    groovyVersion = '2.4.4'
+
+    libpacks = [
+            spring_common: [
+                    'org.springframework.boot:spring-boot-starter-web',
+                    'org.springframework.boot:spring-boot-starter-actuator'
+            ],
+
+            cloud_common: [
+                    'org.springframework.cloud:spring-cloud-starter-eureka',
+                    'org.springframework.cloud:spring-cloud-starter-config',
+                    'org.springframework.cloud:spring-cloud-starter-hystrix'
+            ],
+
+            cloud_eureka_server: [
+                    'org.springframework.cloud:spring-cloud-starter-eureka-server'
+            ],
+
+            cloud_eureka_client: [
+                    'org.springframework.cloud:spring-cloud-starter-eureka-client'
+            ],
+
+            cloud_config_server: [
+                    'org.springframework.cloud:spring-cloud-config-server'
+            ],
+
+            cloud_feign: [
+                    'org.springframework.cloud:spring-cloud-starter-feign'
+            ],
+            
+            cloud_ribbon: [
+                    'org.springframework.cloud:spring-cloud-starter-ribbon'
+            ],
+
+            cloud_routing: [
+                    'org.springframework.cloud:spring-cloud-starter-zuul'
+            ],
+
+            spring: [
+                    'org.springframework.boot:spring-boot-starter-actuator'
+            ],
+
+            groovy : [
+                    "org.codehaus.groovy:groovy-all:${groovyVersion}"
+            ],
+
+            logstash : [
+                    'net.logstash.logback:logstash-logback-encoder:4.4'
+            ],
+
+            testing : [
+                    'org.springframework.boot:spring-boot-starter-test',
+                    'org.spockframework:spock-core:1.0-groovy-2.4',
+                    'org.spockframework:spock-spring:1.0-groovy-2.0'
+            ],
+
+            lombok : [
+                    'org.projectlombok:lombok:1.16.4'
+            ]
+    ]
+}
