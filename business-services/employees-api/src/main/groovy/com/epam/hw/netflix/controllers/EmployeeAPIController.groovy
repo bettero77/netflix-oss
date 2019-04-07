@@ -30,20 +30,21 @@ class EmployeeAPIController {
     @Autowired
     EmployeeService employeeService
 
-    @Autowired
-    WorkspaceAPI workspaceAPIClient
+//    @Autowired
+//    WorkspaceAPI workspaceAPIClient
 
     @RequestMapping("/{id}")
     def describeEmployee(@PathVariable("id") String id) {
         def employee = employeeService.findEmployee(id)
-
+        Workspace workspace = this.restTemplate.getForObject("http://workspaces-api/workspaces/{id}", Workspace.class, employee.workspaceId)
+        println  workspace
         [
                 id       : employee.id,
                 firstName: employee.firstName,
                 lastName : employee.lastName,
                 email    : employee.email,
 //                workspace: workspaceAPIClient.getWorkspaceById(employee.workspaceId) // null? Nope. Let's request exact workspace by employee.workspaceId from workspaces-api. How? With feign client maybe?
-                workspace: this.restTemplate().getForObject("http://workspaces-api/workspaces/{id}", Workspace.class, employee.workspaceId)
+                workspace: this.restTemplate.getForObject("http://workspaces-api/workspaces/{id}", Workspace.class, employee.workspaceId)
         ]
     }
 }

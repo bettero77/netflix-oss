@@ -4,22 +4,25 @@ spring:
   cloud:
     config:
       uri: http://${CONFIG_HOST:localhost}:8888
-      failFast: true
+      failFast: false
 
 server:
   port: 9092
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:9292/eureka/
 
-#    register-with-eureka: false
-#    fetch-registry: false
+#importante not to put this into "workspaces-api/ribbon.." config
+#otherwise it will not work "no instance avail for 'my-service'" - @RibbonClient(name = "my-service")
+
+ribbon:
+  eureka:
+    enabled: false
 
 workspaces-api:
   ribbon:
-    eureka:
-      enabled: true
-    listOfServers: localhost:9090
-    ServerListRefreshInterval: 15000s
+    listOfServers: http://localhost:9090
+    ServerListRefreshInterval: 15000
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:9292/eureka/

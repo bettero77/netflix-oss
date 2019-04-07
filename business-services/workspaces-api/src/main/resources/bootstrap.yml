@@ -4,12 +4,15 @@ spring:
   cloud:
     config:
       uri: http://${CONFIG_HOST:localhost}:8888
-      failFast: true
+      failFast: false
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:9292/eureka/
+server:
+  port: 9090
+
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:9292/eureka/
 
 #    register-with-eureka: false
 #    fetch-registry: false
