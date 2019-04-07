@@ -8,8 +8,26 @@ endpoints:
 
 zuul:
   routes:
-    workspaces-api: /workspaces/**
-    employees-api: /employees/**
+    workspaces-api:
+      path: /workspaces/**
+      url: http://localhost:9090
+#      serviceId: workspaces-api
+      stripPrefix: false
+#    employees-api: /employees/**
+
+ribbon:
+  eureka:
+    enabled: false
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+#workspaces-api:
+#  ribbon:
+#    listOfServers: http://localhost:9090
+#    ServerListRefreshInterval: 15000
 
 server:
   port: 8081

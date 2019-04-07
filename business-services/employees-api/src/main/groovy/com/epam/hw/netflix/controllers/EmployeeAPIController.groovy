@@ -15,10 +15,10 @@ import org.springframework.web.client.RestTemplate
 
 @RestController
 @RequestMapping("/employees")
-@RibbonClient(name = "workspaces-api")
+//@RibbonClient(name = "workspaces-api")
 class EmployeeAPIController {
 
-    @LoadBalanced
+//    @LoadBalanced
     @Bean
     RestTemplate restTemplate() {
         return new RestTemplate()
@@ -36,15 +36,16 @@ class EmployeeAPIController {
     @RequestMapping("/{id}")
     def describeEmployee(@PathVariable("id") String id) {
         def employee = employeeService.findEmployee(id)
-        Workspace workspace = this.restTemplate.getForObject("http://workspaces-api/workspaces/{id}", Workspace.class, employee.workspaceId)
-        println  workspace
+
         [
                 id       : employee.id,
                 firstName: employee.firstName,
                 lastName : employee.lastName,
                 email    : employee.email,
 //                workspace: workspaceAPIClient.getWorkspaceById(employee.workspaceId) // null? Nope. Let's request exact workspace by employee.workspaceId from workspaces-api. How? With feign client maybe?
-                workspace: this.restTemplate.getForObject("http://workspaces-api/workspaces/{id}", Workspace.class, employee.workspaceId)
+//                workspace: this.restTemplate.getForObject("http://workspaces-api/workspaces/{id}", Workspace.class, employee.workspaceId)
+//                workspace: this.restTemplate.getForObject("http://localhost:9090/workspaces/{id}", Workspace.class, employee.workspaceId)
+                workspace: this.restTemplate.getForObject("http://localhost:8081/workspaces/{id}", Workspace.class, employee.workspaceId)
         ]
     }
 }

@@ -13,14 +13,14 @@ server:
 #importante not to put this into "workspaces-api/ribbon.." config
 #otherwise it will not work "no instance avail for 'my-service'" - @RibbonClient(name = "my-service")
 
-ribbon:
-  eureka:
-    enabled: false
-
-workspaces-api:
-  ribbon:
-    listOfServers: http://localhost:9090
-    ServerListRefreshInterval: 15000
+#ribbon:
+#  eureka:
+#    enabled: false
+#
+#workspaces-api:
+#  ribbon:
+#    listOfServers: http://localhost:9090
+#    ServerListRefreshInterval: 15000
 
 #eureka:
 #  client:
