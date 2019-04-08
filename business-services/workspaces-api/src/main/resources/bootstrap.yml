@@ -9,13 +9,12 @@ spring:
 server:
   port: 9090
 
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:9292/eureka/
-
-#    register-with-eureka: false
-#    fetch-registry: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9292/eureka/
+#    register-with-eureka: true
+#    fetch-registry: true
 
 #server:
 #  port: 9494

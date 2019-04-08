@@ -10,19 +10,22 @@ zuul:
   routes:
     workspaces-api:
       path: /workspaces/**
-      url: http://localhost:9090
-#      serviceId: workspaces-api
       stripPrefix: false
+#      url: http://localhost:9090
+#      serviceId: workspaces-api
+
 #    employees-api: /employees/**
 
-ribbon:
-  eureka:
-    enabled: false
+#ribbon:
+#  eureka:
+#    enabled: false
 
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://localhost:9292/eureka/
+    register-with-eureka: true
+    fetch-registry: true
 
 #workspaces-api:
 #  ribbon:

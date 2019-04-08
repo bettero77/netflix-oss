@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.ribbon.RibbonClients;
 
 
 @SpringBootApplication
-//@EnableEurekaClient
+@EnableEurekaClient
 public class WorkplacesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WorkplacesApplication.class, args);
