@@ -5,6 +5,8 @@ import com.epam.hw.netflix.domain.Workspace;
 import com.epam.hw.netflix.services.WorkplaceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/workspaces")
 @Slf4j
+@RefreshScope
 public class WorkplaceAPIController implements WorkspaceAPI {
+
+    @Value("${message:???}")
+    private String message;
 
     @Autowired
     private WorkplaceService workplaceService;
@@ -27,6 +33,6 @@ public class WorkplaceAPIController implements WorkspaceAPI {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home() {
-        return "Home page";
+        return "Home page" + message;
     }
 }

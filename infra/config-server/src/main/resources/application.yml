@@ -6,9 +6,8 @@ spring:
 #          search-locations: file:///D:/B
           searchLocations: classpath:/shared
 
-#  profiles:
-#     active: native
-
+  profiles:
+     active: native
 
   application:
     name: config-service

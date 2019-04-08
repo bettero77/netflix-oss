@@ -10,7 +10,8 @@ eureka:
 #      register-with-eureka: false
 #      fetch-registry: false
 
-#
+message: 2222
+
 #    region: default
 #    registryFetchIntervalSeconds: 5
 #eureka:
