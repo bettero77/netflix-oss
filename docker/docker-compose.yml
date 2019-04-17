@@ -1,0 +1,12 @@
+version: '3'
+services:
+  bus-serv:
+    build: ./
+    ports:
+      - '9090:9090'
+  emp-serv:
+    build:
+      context: .
+      dockerfile: Dockerfile1
+    ports:
+      - '9092:9092'

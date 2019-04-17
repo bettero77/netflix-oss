@@ -1,0 +1,4 @@
+FROM openjdk:8-jdk-alpine
+WORKDIR /
+ADD employees-api-0.0.1.jar employees-api-0.0.1.jar
+ENTRYPOINT ["java", "-jar", "employees-api-0.0.1.jar" ]
